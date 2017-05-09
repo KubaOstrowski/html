@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<title>Technologia AJAX</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<script>
+var ajax;
+if(typeof XMLHttpRequest == "undefined")
+{
+ajax = new ActiveXObject('Microsoft.XMLHTTP');
+}
+else
+{
+ajax = new XMLHttpRequest();
+}
+function pobierz(zasob, znacznik)
+{
+if(document.getElementById(znacznik) != null)
+{
+ajax.open("GET", "./"+zasob, "true");
+ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencodede;charset=UTF-8");
+ajax.onreadystatechange = function()
+{
+if(ajax.readyState == 4 && ajax.status == 200) wypisz(ajax.responseXML, znacznik);
+else document.getElementById(znacznik).innerHTML = "Czekaj!!!";
+}
+ajax.send();
+}
+}
+function wypisz(daneXML, identyfikator)
+{
+var wyjscie = 'parsowanie danych ...';
+document.getElementById(identyfikator).innerHTML = wyjscie;
+var dane = daneXML.getElementsByTagName("dane");
+document.getElementById(identyfikator).innerHTML = 'dane odebrane';
+if(dane.length == 1)
+{
+document.getElementById(identyfikator).innerHTML = 'dane są parsowane ...';
+var elementy = dane[0].getElementsByTagName('tytul');
+wyjscie += '<table border="1">';
+wyjscie += '<tbody>';
+for( var i=0;i<elementy.length;i++)
+{
+document.getElementById(identyfikator).innerHTML = 'dane są parsowane ... ' + i + "/" + elementy.length;
+wyjscie += '<tr>';
+wyjscie += '<td>';
+wyjscie += elementy[i].childNodes[0].nodeValue;
+wyjscie += '</td>';
+wyjscie += '</tr>';
+}
+wyjscie += '</tbody>';
+wyjscie += '</table>';
+}
+else
+{
+wyjscie = 'niepoprawne dane';
+}
+document.getElementById(identyfikator).innerHTML = wyjscie;
+}
+</script>
+<div id="info">Kliknij przycisk poniżej aby pobrać dane z serwera:</div>
+<input type="button" value="Pobież dane z serwera" onclick="pobierz('ksiazki.xml','info');" />
+</body>
+</html>

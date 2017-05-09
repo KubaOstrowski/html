@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>zadanko</title>
+</head>
+<body onload="start();">
+
+<script>
+var v1 = '<input type="button" value="Start" onclick="przyciski()"/>';
+var v2 = '<input id="imie" type="text" name="txt1" value="" />&nbsp;&nbsp<input type="button" value="K" onclick="kobieta()"/>&nbsp;&nbsp<input type="button" value="M" onclick="mezczyzna()"/>';
+var v3 = '<input type="button" value="ubrania" />&nbsp;&nbsp;<input type="button" value="buty" />&nbsp;&nbsp;<input type="button" value="diamenty"/>';
+var v4 = '<input type="button" value="samochody" />&nbsp;&nbsp;<input type="button" value="pieniadze"/>&nbsp;&nbsp;<input type="button" value="Legia"/>';
+
+
+function start ()
+{
+document.getElementById("d1").innerHTML = v1;
+}
+function przyciski ()
+{
+document.getElementById("d2").innerHTML = v2;
+
+}
+function kobieta ()
+{
+document.getElementById("d3").innerHTML = "Witaj:"+imie.value;
+document.getElementById("d4").innerHTML = v3;
+}
+function mezczyzna ()
+{
+document.getElementById("d3").innerHTML = "Witaj:"+imie.value;
+document.getElementById("d4").innerHTML = v4;
+}
+</script>
+<div id="d1"> </div>
+<div id="d2"> </div>
+<div id="d3"> </div>
+<div id="d4"> </div>
+</body>
+</html>

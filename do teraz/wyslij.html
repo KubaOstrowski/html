@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" >
+</head>
+<body>
+<script>
+var ajax; 
+if(typeof XMLHttpRequest == "undefined")
+{
+ajax = new ActiveXObject('Microsoft.XMLHTTP');
+}
+else
+{
+ajax = new XMLHttpRequest();
+}
+
+function wyslij() 
+{
+var miasto = document.getElementById("txt1").value;
+var ulica = document.getElementById("txt2").value;
+ajax.open('POST', "odbierz.php", true);
+ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+ajax.send("dane1="+miasto+"&dane2="+ulica);
+}
+</script>
+Miasto:&nbsp;<input id="txt1" type="text" name="miasto" value="" />
+Ulica:&nbsp;<input id="txt2" type="text" name="ulica" value="" />
+<p>Kliknij przycisk</p>
+<input type="button" value="Wyślij" onclick="wyslij();" />
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Technologia AJAX</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<script>
+var ajax;
+if(typeof XMLHttpRequest == "underfined")
+{
+	ajax = new ActiveXObject('Microsoft.XMLHTTP');
+}
+else
+{
+	ajax = new XMLHttpRequest();
+}
+function pobierz()
+{
+	ajax.open("GET", "./tekst.txt", "true");
+	ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+	ajax.onreadystatechange = function()
+	{
+		if(ajax.readyState == 4 && ajax.status == 200) alert(ajax.responseText);
+		else alert('Czekaj: Stan '+ajax.readyState+' Status: '+ajax.status);
+	}
+	ajax.send();
+}
+</script>
+<p>Kliknij przycisk poniżej przyjacielu</p>
+<input type="button" value="Pobierz dane" onclick="pobierz();" />
+</body>
+</html>

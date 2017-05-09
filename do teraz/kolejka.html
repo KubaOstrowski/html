@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+</head>
+<body>
+<input type="text" id="liczba" /><br />
+<input type="button" value="Dodaj do kolejki" onclick="dodaj();" /><br />
+<input type="button" value="Zdejmij z kolejki" onclick="zdejmij();" /><br />
+<p id="a9">null</p>
+<p id="a8">null</p>
+<p id="a7">null</p>
+<p id="a6">null</p>
+<p id="a5">null</p>
+<p id="a4">null</p>
+<p id="a3">null</p>
+<p id="a2">null</p>
+<p id="a1">null</p>
+<p id="a0">null</p>
+<script>
+var j;
+var n = 10;
+var kolejka = new Array();
+
+initialize();
+
+function initialize()
+{
+var k;
+for(k=0;k<n;k++)
+{
+	kolejka[k] = "null";
+}
+j = -1;
+}
+function enq(element)
+{
+	j++;
+	kolejka[j] = element;
+}
+function deq()
+{
+	var x = kolejka[0];
+	for(k=0;k<j;k++)
+	{
+		kolejka[k] = kolejka[k+1];
+	}
+	kolejka[k] = "null";
+	j--;
+	return x;
+}
+function full()
+{
+	if(j==(n-1)) return true;
+	return false;
+}
+function empty()
+{
+	if(j == -1) return true;
+	else return false;
+}
+function dodaj()
+{
+	var liczba = parseInt(document.getElementById("liczba").value);
+	if(!full())enq(liczba);
+	else alert("KOLEJKA JEST PEŁNA");
+	for(var k=0;k<n;k++)
+	{
+		document.getElementById("a"+k).innerHTML = kolejka[k];
+	}
+}
+function zdejmij()
+{
+	if(!empty()) var x = deq();
+	else alert("KOLEJKA JEST PUSTA");
+	for(var k=0;k<n;k++)
+	{
+		document.getElementById("a"+k).innerHTML = kolejka[k];
+	}
+}
+</script>
+</body>
+</html>

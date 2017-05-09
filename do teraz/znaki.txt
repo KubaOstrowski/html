@@ -1,0 +1,16 @@
+Znaki zwyczajne (pospolite):
+alfabet(mały, DURZY), cyfry
+
+znaki niezwyczajne (specjalne):
+.		-jeden dowolny znak(bezstrony)
+^		-początek ciągu znaków(prawostronny)
+$		-koniec ciągu znaków(lewostronny)
+*		-powturzenie 0 lub więcej razy
++		-powturzenie 1 lub więcej razy
+?		-powturzenie 1 lub 0 razy
+()		-wyrażenie atomowe(analizujemy jako całość)
+|		-alternatywa(obustronna)
+[a-z]	-zbiór  
+{x}		-powturzenie 'x'razy (dokładnie 'x' razy lewostronny)
+{x,y}	-powturzenie przynajmniej x nie więcej niż y
+\		-umorzliwia wprowadzenie znaków specjalnych jako zwykłych znaków
