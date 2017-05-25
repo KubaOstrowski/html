@@ -1,0 +1,26 @@
+#contener {
+	
+}
+
+.head {
+	
+}
+
+#navigacja {
+	float: left;
+	width: 40%;
+}
+
+#panel {
+	float: left;
+	width: 60%;
+}
+
+.nav_a {
+	display: block;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}

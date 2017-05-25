@@ -1,0 +1,16 @@
+div {
+border: 1px solid black;
+
+margin: 0;
+padding: 2px;
+width: 300px;
+vertical-align: top;}
+
+div.linia {
+width: inherit;
+padding: 4px 0 4px 0;
+border: 0; }
+
+div.komorka {
+display: inline;
+}

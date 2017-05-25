@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<title>Strona WWW</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<script>
+	function sprawdz()
+	{
+		var komunikat = '';
+		var liczba_temp = prompt('Podaj liczbę całkowitą','');
+		var liczba = parseInt(liczba_temp);
+		if(isNaN(liczba))
+		{
+			komunikat = "Coś spiepszyłeś";
+		}
+		else
+		{
+			if(liczba%8 == 0) komunikat = 'Liczba'+ liczba +' jest podzielna przez 8';
+			else komunikat = 'Liczba"'+ liczba +'nie jest podzielna przez 8';
+		}
+		alert(komunikat);
+	}
+	</script>
+<div id="contener">
+	<header>
+		<a href="index.html"><img src="baner.png" alt="baner.png"/></a>
+	</header>
+	<nav id="navigacja">
+		<p>MENU</p>
+		<a class="nav_a" href="index.html">Opis</a>
+		<a class="nav_a" href="haslo.php">Podzielność przez 8</a>
+		<a class="nav_a" href="suma.html">Suma liczb z zakresu</a>
+	</nav>
+	<article id="panel">
+		<p>Kliknij aby rozpocząć</p>
+		<button onclick="sprawdz();">sprawdz</button>
+	</article>
+</div>
+</body>
+</html>
